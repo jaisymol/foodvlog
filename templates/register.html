@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color:black;
+}
+.container {
+    padding: 60px;
+  background-color:black;
+  background-size:cover;
+  background-position:center;
+
+}
+
+input[type=text], input[type=password], textarea {
+  width: 30%;
+  padding: 12px 20px;
+  color:blue;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color:black;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color:white;
+  outline: none;
+  color:blue
+}
+ div {
+        padding: 2px 0;
+       }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 15px;
+}
+.registerbtn {
+  background-color:black;
+  color: blue;
+  padding: 10px 20px;
+  margin: 4px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form  action="register" method="POST">
+    {% csrf_token %}
+  <div class="container" style="background-image:url({% static 'hm/images/demo/backgrounds/b.jpg' %})">
+
+  <center>  <h1>  Register</h1> </center>
+
+    <center>
+
+  <label> Firstname </label>
+
+<input type="text" name="first_name" placeholder= "firstname" size="10" required />
+<label> lastname </label>
+<input type="text" name="last_name" placeholder="lastname" size="10" required />
+<label> username</label>
+<input type="text" name="username" placeholder="username" size="10"required />
+        <label for="email"><b>Email</b></label>
+   <input type="text" placeholder="Enter Email" name="email" required/>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password1" required/>
+
+    <label for="psw-repeat"><b>Re-type Password</b></label>
+    <input type="password" placeholder="Retype Password" name="password2" required/>
+    <button type="submit" class="registerbtn">Register</button>
+   </div>
+
+</center>
+
+</form>
+</body>
+</html>
+{% endblock %}

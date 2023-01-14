@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <center><h1>Signup </h1></center>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+  font-family: Calibri"
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color:white;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+
+/* Add padding to containers */
+.container {
+color:black;
+  padding: 16px;
+
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+/* The "Forgot password" text */
+span.psw {
+color:white;
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+    <form action="login" method="POST">
+        {% csrf_token %}
+
+
+  <div class="container" style="background-image:url({% static 'hm/images/demo/backgrounds/c.jpg' %});">
+<center>
+    <input type="text" placeholder="Enter Username" name="username" required><br>
+
+<br>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+
+    <button type="submit">Login</button>
+    </center>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:white">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="password">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</body>
+</html>
+{% endblock %}
